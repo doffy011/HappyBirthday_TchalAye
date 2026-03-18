@@ -1,0 +1,1033 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SECTION 1 */
+#section1 {
+  display: flex;
+  background: linear-gradient(to top right, #ffd1dc, #f8bbd0);
+  text-align: center;
+  flex-direction: column;
+}
+
+.heading1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5em;
+  color: #d81b60;
+  animation: fadeIn 2s forwards;
+  opacity: 0;
+}
+
+.heading2 {
+  font-size: 1.3em;
+  color: #880e4f;
+  animation: fadeIn 2s forwards;
+  animation-delay: 1.5s;
+  opacity: 0;
+}
+
+.teddy {
+  width: 300px;
+  margin: 25px 0;
+  animation: pop 1s ease-out;
+}
+
+.continue-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  background: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+  animation: fadeIn 2s forwards;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+.continue-btn:hover {
+  background: #c2185b;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* SECTION 2 */
+/* SECTION 2 Styling */
+#section2 {
+  position: relative;
+  background: black;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Wrapper to fix z-index */
+.video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* So video stays behind text */
+  overflow: hidden;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.birthday-text {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  color: #fff; /* White text */
+  opacity: 0; /* Start hidden */
+  animation: fadeInText 7s ease-in-out 7s forwards; /* ✅ 3s delay */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+/* Button section */
+.section2-button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1;
+}
+
+.section2-button button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #ff4081;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+  transition: background 0.3s ease;
+}
+
+.section2-button button:hover {
+  background: #e91e63;
+}
+
+
+
+
+
+
+
+
+/* Section 3 background */
+#section3 {
+  display: none;
+  background: #a27bcc;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+}
+
+/* Book Card Layout */
+.book-card {
+  width: 90%;
+  max-width: 360px;
+  height: 620px; /* ⬅️ Increased from 540px */
+  perspective: 1500px;
+}
+
+
+.book-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+.book-card.open .book-inner {
+  transform: rotateY(180deg);
+}
+
+/* Card Front and Inside */
+.book-front, .book-inside {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #ffffff, #ffeef0);
+}
+
+.book-front {
+  background: linear-gradient(to bottom right, #fff, #fbdde9);
+}
+
+.book-front h2 {
+  font-size: 2.4rem;
+  color: #c2185b;
+  margin-bottom: 20px;
+  font-family: 'Dancing Script', cursive;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Front image */
+.front-image {
+  width: 240px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Inside Card */
+.book-inside {
+  transform: rotateY(180deg);
+  padding: 12px 10px;
+  padding-bottom: 18px; /* 👈 Add this line */
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+/* Inside heading */
+.inside-heading {
+  font-size: 1rem;
+  color: #e91e63;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Inside image */
+.inside-image {
+  width: 95px;
+  margin: 8px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* Inside message */
+.card-message {
+  font-size: 0.78rem;   /* smaller text */
+  line-height: 1.35;    /* tighter line spacing */
+  padding: 6px 10px;    /* less padding */
+  color: #444;
+  text-align: center;
+}
+
+
+/* Big gift emoji */
+.card-gift {
+  font-size: 64px;
+  animation: glow 1.5s infinite alternate;
+  cursor: pointer;
+}
+
+.card-gift-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.gift-hint-small {
+  font-size: 0.7rem;
+  color: #e91e63;
+  margin-left: 8px;
+  font-weight: bold;
+  text-shadow: 0 0 4px rgba(255, 192, 203, 0.5);
+}
+
+
+/* Surprise box hint text */
+.hint-text {
+  font-size: 0.7rem;
+  text-align: center;
+  background: #fff0f5;
+  color: #e91e63;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  display: inline-block;
+}
+
+/* Glow animation for gift */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff4081, 0 0 10px #ff4081;
+  }
+  to {
+    text-shadow: 0 0 12px #e91e63, 0 0 20px #e91e63;
+  }
+}
+
+
+
+
+
+
+
+
+/* SECTION 4 Background + Layout */
+#section4 {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 40px;
+  background: url('https://static.vecteezy.com/system/resources/thumbnails/056/062/995/small/lavender-spring-gradient-background-photo.jpg') center/cover no-repeat;
+  position: absolute;
+  inset: 0;
+  overflow-y: auto; /* allow scroll if needed on small screens */
+}
+
+/* "I LOVE YOU" heading */
+.section4-love {
+  font-size: 2.6rem; /* slightly smaller for mobile */
+  color: #e91e63;
+  font-family: 'Dancing Script', cursive;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* "This was just a small surprise..." line */
+.section4-line {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* Frame Wrapper - Smaller for mobile */
+.framed-photo {
+  position: relative;
+  width: 340px;   /* ✅ Yahan */
+  height: 340px;  /* ✅ Yahan */
+  margin-bottom: 20px;
+}
+
+/* Surprise Image Size Control */
+.main-surprise-img {
+  width: 340px;
+  height: auto; /* let height adjust proportionally */
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+
+
+/* Optional: Frame image on top */
+.image-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body {
+	font-family: 'Indie Flower', cursive !important;
+  background: #FDE3A7; /*CAPE HONEY*/
+	margin: 0px;
+	padding: 0px;
+}
+
+::selection {
+	background: transparent;
+}
+
+h4 {
+	font-size: 26px;
+	line-height: 20px;
+	font-family: 'Amatic SC', cursive !important;
+}
+
+.color1{color:#1BBC9B}/*MOUNTAIN MEADOW*/
+.color2{color:#C0392B/*TALL POPPY*/}
+
+
+.card {
+	color: #013243; /*SHERPA BLUE*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 400px;
+	background: #e0e1dc;
+	transform-style: preserve-3d;
+	transform: translate(-50%,-50%) perspective(2000px);
+	box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
+	transition: 1s;
+}
+
+.card:hover {
+	transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
+	box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+}
+
+.card:before {
+	content:'';
+	position: absolute;
+	top: -5px;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background: #BAC1BA;
+	transform-origin: bottom;
+	transform: skewX(-45deg);
+}
+
+.card:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: -5px;
+	width: 5px;
+	height: 100%;
+	background: #92A29C;
+	transform-origin: left;
+	transform: skewY(-45deg);
+}
+
+.card .imgBox {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-origin: left;
+	transition: .7s;
+}
+
+.card .bark {
+	position: absolute;
+	background: #e0e1dc;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: .7s;
+}
+
+.card .imgBox img {
+	min-width: 250px;
+	max-height: 400px;
+}
+
+.card:hover .imgBox {
+	transform: rotateY(-135deg);
+}
+
+.card:hover .bark {
+	opacity: 1;
+	transition: .6s;
+  box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+}
+
+.card .details {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	padding: 0 0 0 10px;
+	z-index: -1;
+	margin-top: 70px;
+}
+
+.card .details p {
+	font-size: 15px;
+	line-height: 25px;
+	transform: rotate(-10deg);
+	padding: 0 0 0 20px;
+}
+
+.card .details h4 {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+@media (max-width: 768px) {
+  .birthday-text{
+    font-size: 2rem;
+    margin-top: 3rem;
+  }
+  .heading1 {
+    font-size: 1.8em;
+  }
+  .heading2 {
+    font-size: 1em;
+  }
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+
+#cake {
+  display: block;
+  position: relative;
+  margin: -10em auto 0 auto;
+}
+
+/* ============================================== Candle
+*/
+
+.velas {
+  background: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 228px;
+  left: 50%;
+  margin-left: -2.4px;
+  margin-top: -8.33333333px;
+  width: 5px;
+  height: 35px;
+  transform: translateY(-300px);
+  backface-visibility: hidden;
+  animation: in 500ms 6s ease-out forwards;
+}
+.velas:after,
+.velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.22222222px;
+}
+.velas:after {
+  top: 25%;
+  left: 0;
+}
+.velas:before {
+  top: 45%;
+  left: 0;
+}
+
+/* ============================================== Fire
+*/
+
+.fuego {
+  border-radius: 100%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -2.6px;
+  width: 6.66666667px;
+  height: 18px;
+}
+.fuego:nth-child(1) {
+  animation: fuego 2s 6.5s infinite;
+}
+.fuego:nth-child(2) {
+  animation: fuego 1.5s 6.5s infinite;
+}
+.fuego:nth-child(3) {
+  animation: fuego 1s 6.5s infinite;
+}
+.fuego:nth-child(4) {
+  animation: fuego 0.5s 6.5s infinite;
+}
+.fuego:nth-child(5) {
+  animation: fuego 0.2s 6.5s infinite;
+}
+
+/* ============================================== Animation Fire
+*/
+
+@keyframes fuego {
+  0%, 100% {
+    background: rgba(254, 248, 97, 0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    transform: translateY(-20px) scale(0);
+  }
+}
+
+@keyframes in {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.text {
+  color: #8b6a60;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style:italic;
+  text-align: center;
+  h1 {
+    font-size: 1.4em;
+  }
+}
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+
+
+.cake {
+
+  position: relative; /* absolute မှ relative သို့ ပြောင်းလဲခြင်းဖြင့် စာသားစီရလွယ်စေသည် */
+
+  width: 100px;
+
+  height: 100px;
+
+}
+
+
+/* --- Stickers Style --- */
+
+.sticker {
+
+  position: absolute;
+
+  font-size: 40px;
+
+  z-index: 20;
+
+  animation: floatSticker 3s ease-in-out infinite;
+
+}
+
+
+.s1 { top: -80px; left: -60px; }
+
+.s2 { top: -50px; right: -70px; animation-delay: 1s; }
+
+.s3 { bottom: -20px; left: -80px; animation-delay: 1.5s; }
+
+
+@keyframes floatSticker {
+
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+
+  50% { transform: translateY(-20px) rotate(15deg); }
+
+}
+
+
+/* --- Base --- */
+
+.cake:after {
+
+  background: #ebe3e1;
+
+  border-radius: 100px;
+
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100px;
+
+  height: 2px;
+
+}
+
+
+/* --- Candle --- */
+
+.velas {
+
+  background: #ffffff;
+
+  border-radius: 100px; /* circle မှ pill shape သို့ */
+
+  position: absolute;
+
+  top: 30%; /* နေရာအနည်းငယ်တင်လိုက်သည် */
+
+  left: 50%;
+
+  margin-left: -2.5px;
+
+  width: 5px;
+
+  height: 25px;
+
+  z-index: 15;
+
+}
+
+
+.velas:after,
+
+.velas:before {
+
+  background: rgba(255, 0, 0, 0.4);
+
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 2.22px;
+
+}
+
+.velas:after { top: 25%; left: 0; }
+
+.velas:before { top: 45%; left: 0; }
+
+
+/* --- Fire --- */
+
+.fuego {
+
+  border-radius: 100%;
+
+  box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+
+  position: absolute;
+
+  top: -15px;
+
+  left: 50%;
+
+  margin-left: -3.33px;
+
+  width: 6.66px;
+
+  height: 12.5px;
+
+}
+
+
+.fuego:nth-child(1) { animation: fuego 2s infinite; }
+
+.fuego:nth-child(2) { animation: fuego 1.5s infinite; }
+
+.fuego:nth-child(3) { animation: fuego 1s infinite; }
+
+.fuego:nth-child(4) { animation: fuego 0.5s infinite; }
+
+.fuego:nth-child(5) { animation: fuego 0.2s infinite; }
+
+
+@keyframes fuego {
+
+  0%, 100% { background: rgba(254, 248, 97, 0.5); transform: translateY(0) scale(1); }
+
+  50% { background: rgba(255, 50, 0, 0.1); transform: translateY(-20px) scale(0); }
+
+}
+
+
+/* --- Frosting --- */
+
+.cobertura {
+
+  background: #ece7e3;
+
+  border-radius: 50px;
+
+  position: absolute;
+
+  top: 65%;
+
+  left: 50%;
+
+  margin-left: -27.77px;
+
+  width: 55.55px;
+
+  height: 12.5px;
+
+  z-index: 10;
+
+}
+
+
+.cobertura:after,
+
+.cobertura:before {
+
+  background: #ece7e3;
+
+  border-radius: 100px;
+
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+
+  height: 10px;
+
+}
+
+.cobertura:after { top: 6.66px; right: 14.28px; }
+
+.cobertura:before { top: 10px; right: 9.09px; }
+
+
+/* --- BIZCOCHO --- */
+
+.bizcocho {
+
+  background: #6d3826;
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 50%;
+
+  margin-left: -25px;
+
+  width: 50px;
+
+  height: 33.33px;
+
+}
+
+.bizcocho:after, .bizcocho:before {
+
+  background: rgba(236, 231, 227, 0.6);
+
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 5px;
+
+}
+
+.bizcocho:after { top: 30%; }
+
+.bizcocho:before { top: 60%; }
+
+
+/* --- TEXT --- */
+
+.text-container h1, p {
+
+  text-align: center;
+
+  width: 200px;
+
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+}
+
+
+.text-container h1 {
+
+    font-family: 'Dancing Script', cursive;
+  color: #6c5299;
+
+  font-size: 1.5em;
+
+  top: 150px;
+
+}
+
+
+p {
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 1em;
+
+  top: 185px;
+
+}
+
+.sticker img {
+
+  width: 100%; /* container နဲ့ အံကိုက်ဖြစ်အောင် */
+
+  height: auto;
+
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2)); /* Sticker ပုံစံပေါက်အောင် shadow ထည့်တာပါ */
+
+}
+
+
+/* ကိတ်မုန့် Container */
+
+.cake {
+
+  position: relative;
+
+  width: 100px;
+
+  height: 100px;
+
+  transform: scale(1.2); /* ဖုန်းမှာ နည်းနည်းပိုကြီးကြီးမြင်ရအောင် */
+
+}
+
+/* စာသားများကို ကိတ်မုန့်အောက် ရောက်အောင်ညှိခြင်း */
+
+.text-container {
+
+  margin-top: 80px; /* ကိတ်မုန့်နဲ့ စာသားကြား အကွာအဝေး */
+
+  text-align: center;
+
+  z-index: 25;
+
+}
+
+
+text-container h1 {
+
+  font-family: 'Dancing Script', cursive;
+
+  color: #6c5299;
+
+  font-size: 1.6rem; /* ဖုန်းအတွက် သင့်တော်သော size */
+
+  margin: 0;
+
+  font-weight: bold;
+
+}
+
+
+p {
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 1.1rem;
+
+  margin-top: 5px;
+
+  font-family: 'Dancing Script', cursive;
+
+}
+
+/* Sticker အခြေခံ Style */
+
+.sticker {
+
+  position: absolute;
+
+  z-index: 20;
+
+  animation: floatSticker 3s ease-in-out infinite;
+
+}
+
+
+.sticker img {
+
+  width: 100%;
+
+  height: auto;
+
+  filter: drop-shadow(2px 4px 5px rgba(0,0,0,0.3));
+
+}
+
+
+/* Sticker ၇ ခု၏ နေရာများ (Mobile View အတွက် အံကိုက်ညှိထားသည်) */
+
+.s1 { width: 60px; top: -90px; left: 10px; }            /* အပေါ်တည့်တည့် */
+
+.s2 { width: 40px; top: -70px; right: -50px; animation-delay: 0.4s; } /* အပေါ်ညာစောင်း */
+
+.s3 { width: 60px; top: -10px; right: -75px; animation-delay: 0.8s; } /* ညာဘက်ဘေး */
+
+.s4 { width: 42px; bottom: -20px; right: -70px; animation-delay: 1.2s; } /* အောက်ညာစောင်း */
+
+.s5 { width: 60px; bottom: 35px; left: 120px; animation-delay: 1.6s; }  /* အောက်တည့်တည့် */
+
+.s6 { width: 40px; bottom: -25px; left: -70px; animation-delay: 2.0s; } /* အောက်ဘယ်စောင်း */
+
+.s7 { width: 38px; top: -80px; left: -65px; animation-delay: 2.4s; }  /* အပေါ်ဘယ်စောင်း */
+
+
+/* Sticker လွင့်နေမည့် Animation */
+
+@keyframes floatSticker {
+
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+
+  50% { transform: translateY(-10px) rotate(5deg) scale(1.05); }
+
+} 
+#fornote {
+  
+  font-size: 1.2rem;
+  color: #fbfbfb;
+  margin-top: 30px;
+   font-family: 'Dancing Script', cursive;
+}
